@@ -3,26 +3,27 @@
 // import React from 'react';
 // import './App.css';
 import React, { useState } from "react";
-import Navbar from "./components/header/headers.jsx";
+// import Navbar from "./components/header/headers.jsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home/Home.jsx";
+// import Home from "./components/Home/Home.jsx";
 // import Promo from "./components/Promos.jsx/Promo.jsx";
 // import Footer from "./components/Footer/Footer.jsx";
 import "./App.css";
-import Sellon from "./components/Sellon/Sellon.jsx";
-import Opay from "./components/opay/opay.jsx";
-import Cart from "./components/cart/cart.jsx";
-import Ordered from "./components/Ordered/Ordered.jsx";
+import WeatherApp from "./components/Weatherapp/weather";
+// import Sellon from "./components/Sellon/Sellon.jsx";
+// import Opay from "./components/opay/opay.jsx";
+// import Cart from "./components/cart/cart.jsx";
+// import Ordered from "./components/Ordered/Ordered.jsx";
 function App() {
   // const [cartCount, setCartCount] = useState(0);
   // function addToCart() {
   //   setCartCount(cartCount + 1);
   // }
-  const [cartItems, setCartItems] = useState([]);
-  const [product, setProduct] = useState([]);
-  const handleAddToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems , product]);
-  };
+  // const [cartItems, setCartItems] = useState([]);
+  // const [product, setProduct] = useState([]);
+  // const handleAddToCart = (product) => {
+    // setCartItems((prevItems) => [...prevItems , product]);
+  // };
 
 //   const handleAddToCart = () => {
 //     if (setCartItems === 0) {
@@ -34,29 +35,9 @@ function App() {
 
   return (
     // <Navbar />
-    <Router>
-      <div className="jumia-app">
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/sellon">
-            <Sellon />
-          </Route>
-          <Route path="/cart">
-            <Navbar cartCount={cartItems.length} />
-            <Cart onAddToCart={handleAddToCart}/>
-          </Route>
-          <Route path="/ordered">
-            <Navbar cartCount={cartItems.length}/>
-            <Ordered cartItems={cartItems}/>
-          </Route>
-          <Route>
-            <Opay />
-          </Route>
-        </Switch>
+      <div className="jumia-app"> 
+       <WeatherApp/>
       </div>
-    </Router>
   );
 }
 
