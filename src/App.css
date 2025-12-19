@@ -1,117 +1,271 @@
-:root {
-  --bg: radial-gradient(circle at top, #1f3756, #141539);
-  --paper: #5671f5;
-  --scissors: #eca922;
-  --rock: #dd405d;
+.login-page {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: "Barlow Semi Condensed", sans-serif;
-}
-
-.app {
-  min-height: 100vh;
-  background: var(--bg);
-  color: #fff;
-  padding: 2rem;
-}
-
-.header {
-  max-width: 720px;
-  margin: 0 auto 4rem;
-  border: 3px solid rgba(255,255,255,.3);
-  border-radius: 16px;
-  padding: 1.5rem 2rem;
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.9)
+  );
+  padding: 24px;
   display: flex;
-  /* flex-direction: row; */
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.login-header {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.login-header img {
+  width: 48px;
+}
+
+/* TEXT */
+.login-text h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.login-text p {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #e0e0e0;
+  line-height: 1.4;
+  max-width: 260px;
+}
+
+/* BUTTONS */
+.btn-primary {
+  margin-top: 30px;
+  background: #ffffff;
+  color: #000;
+  border: none;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-outline {
+  margin-top: 14px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #ffffff;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* LINKS */
+.login-links {
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #ffffff;
+  opacity: 0.9;
+}
+.form-page {
+  height: 100vh;
+  background: #ffffff;
+}
+
+.form-header {
+  background: linear-gradient(90deg, #c60000, #e00000);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: white;
+}
+
+.form-header img {
+  height: 28px;
+  margin-left: auto;
+}
+
+.form-body {
+  padding: 24px;
+}
+
+.form-body label {
+  font-size: 14px;
+  color: #777;
+}
+
+.form-body input {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0 18px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.remember {
+  display: flex;
+  /* border:2px solid red; */
+  width: 11%;
+  align-items: center;
+  /* justify-content: center; */
+  justify-self: center;
+  align-self: center;
+  /* gap: 10px; */
+  /* font-size: 14px; */
+  margin-bottom: 20px;
+}
+
+.form-body button {
+  width: 100%;
+  background: #bdbdbd;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  border-radius: 6px;
+}
+
+.forgot {
+  margin-top: 18px;
+  text-align: center;
+  color: #555;
+}
+
+.internet {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.internet span {
+  color: #c60000;
+}
+.dashboard {
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 70px;
+}
+
+/* HEADER */
+.dash-header {
+  background: linear-gradient(90deg, #c60000, #e00000);
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.score {
-  background: white;
-  color: #3b4262;
-  padding: .75rem 2rem;
-  border-radius: 8px;
-  text-align: center;
-  width: 8%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.dash-header img {
+  width: 30px;
 }
 
-.score strong { font-size: 2.5rem; }
-
-.triangle {
-  position: relative;
-  width: 360px;
-  height: 300px;
-  margin: auto;
-}
-
-.triangle button {
-  position: absolute;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.triangle button:nth-child(1) { left: 0; top: 0; }
-.triangle button:nth-child(2) { right: 0; top: 0; }
-.triangle button:nth-child(3) { left: 120px; bottom: 0; }
-
-.stage, .final {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.final { grid-template-columns: 1fr auto 1fr; }
-
-.outcome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.outcome h2 { font-size: 3rem; }
-
-.outcome button {
-  padding: .75rem 2rem;
-  border-radius: 8px;
-  border: none;
-}
-
-.token {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: white;
-  display: grid;
-  place-items: center;
-  margin: auto;
-}
-
-.token.paper { border: 22px solid var(--paper); }
-.token.scissors { border: 22px solid var(--scissors); }
-.token.rock { border: 22px solid var(--rock); }
-
-.token.empty {
-  background: rgba(0,0,0,.25);
-  border: none;
-}
-
-.rules-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: transparent;
+/* BALANCE CARD */
+.balance-card {
+  background: #d81f1f;
   color: white;
-  border: 1px solid white;
-  padding: .5rem 1.5rem;
-  border-radius: 8px;
+  margin: 16px;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.balance-card p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.balance-card h1 {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* ACCOUNT INFO */
+.account-info {
+  background: white;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.acct-number {
+  color: #c60000;
+  font-size: 14px;
+}
+
+.acct-name {
+  margin: 6px 0;
+  font-weight: 600;
+}
+
+.ledger span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ledger small {
+  display: block;
+  margin-top: 4px;
+  color: gray;
+}
+
+/* ACTION GRID */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding: 16px;
+}
+
+.action {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+  color: #c60000;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: gray;
+}
+
+.nav-item.active {
+  color: #c60000;
+  font-weight: 600;
 }
