@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Logo from "../assets/images/icon-scissors.svg"; // use ANY banking-style image
+
 // import "./LoginForm.css";
 
 export default function LoginForm({ onSuccess }) {
@@ -15,9 +17,9 @@ export default function LoginForm({ onSuccess }) {
     <div className="form-page">
       <header className="form-header">
         <span>←</span>
-        <img src="/logo.png" alt="" />
+        <img src={Logo} alt=""style={{ backgroundColor: "white", borderRadius: "50%" }}
+ />
       </header>
-
       <div className="form-body">
         <label>Account Number</label>
         <input

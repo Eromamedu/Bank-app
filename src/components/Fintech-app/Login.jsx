@@ -1,9 +1,9 @@
 import React from "react";
 // import "./Login.css";
-import bg from "../assets/images/icon-scissors.svg"; // use ANY banking-style image
-import Logo from "../assets/images/icon-scissors.svg"; // use ANY banking-style image
+import bg from "../assets/images/icon-scissors.svg"; 
+import Logo from "../assets/images/icon-scissors.svg";
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, onRegister }) {
   return (
     <div className="login-page" style={{ backgroundImage: `url(${bg})` }}>
       <div className="login-overlay">
@@ -24,7 +24,7 @@ export default function Login({ onLogin }) {
           Log In
         </button>
 
-        <button className="btn-outline">Register</button>
+        <button className="btn-outline" onClick={onRegister}>Register</button>
 
         <div className="login-links">
           <span>Internet Banking</span>

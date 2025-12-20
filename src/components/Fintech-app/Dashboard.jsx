@@ -38,7 +38,7 @@ export default function Dashboard() {
         <p className="acct-name">BELIEVE ABRAHAM AMEDU</p>
 
         <div className="ledger">
-          <span>{hideBalance ? "₦ ****" : "₦ 1x6,985.38"}</span>
+          <span>{hideBalance ? "₦ ****" : "₦ 16,985.38"}</span>
           <small>Ledger Balance: ₦ 17,035.38</small>
         </div>
       </section>
