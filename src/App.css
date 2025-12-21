@@ -342,3 +342,47 @@
   color: #c60000;
   font-weight: 600;
 }
+select {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.tx-row {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.tx-row small {
+  display: block;
+  color: gray;
+  margin-top: 4px;
+}
+
+.tx-row.debit span {
+  color: #c60000;
+}
+
+.tx-row.credit span {
+  color: green;
+}
+.nav-item:hover {
+  color: #c60000;
+  cursor: pointer;
+}
+.action:hover {
+  background: #ffe5e5;
+  color: #c60000;
+  cursor: pointer;
+}
+
+.action:hover .icon {
+  color: #c60000;
+}

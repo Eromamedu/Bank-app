@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../assets/images/icon-scissors.svg"
 // import "./Dashboard.css";
 
-export default function Dashboard() {
+export default function Dashboard({goToAirtime, goToTransfer, goToTransactions}) {
   const [hideBalance, setHideBalance] = useState(false);
 
   return (
@@ -58,10 +58,10 @@ export default function Dashboard() {
 
       {/* BOTTOM NAV */}
       <nav className="bottom-nav">
-        <NavItem label="Overview" active />
-        <NavItem label="Airtime" />
-        <NavItem label="Transfer" />
-        <NavItem label="Bills" />
+  <NavItem label="Overview" active />
+  <NavItem label="Airtime" onClick={goToAirtime} />
+  <NavItem label="Transfer" onClick={goToTransfer} />
+  <NavItem label="Transactions" onClick={goToTransactions} />
       </nav>
     </div>
   );
@@ -75,10 +75,12 @@ function Action({ icon, label }) {
     </div>
   );
 }
-
-function NavItem({ label, active }) {
+function NavItem({ label, active, onClick }) {
   return (
-    <div className={`nav-item ${active ? "active" : ""}`}>
+    <div
+      className={`nav-item ${active ? "active" : ""}`}
+      onClick={onClick}
+    >
       <span>{label}</span>
     </div>
   );
