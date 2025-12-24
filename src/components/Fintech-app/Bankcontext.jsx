@@ -6,10 +6,13 @@ export function BankProvider({ children }) {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
-  /* LOAD FROM LOCAL STORAGE */
+  // ✅ LOAD SAVED DATA ON APP START
   useEffect(() => {
-    const savedUsers = JSON.parse(localStorage.getItem("bankUsers")) || [];
-    const loggedUser = JSON.parse(localStorage.getItem("loggedUser")) || null;
+    const savedUsers =
+      JSON.parse(localStorage.getItem("bankUsers")) || [];
+
+    const loggedUser =
+      JSON.parse(localStorage.getItem("loggedUser")) || null;
 
     setUsers(savedUsers);
     setCurrentUser(loggedUser);
@@ -22,37 +25,85 @@ export function BankProvider({ children }) {
   }, [users, currentUser]);
 
   /* REGISTER */
-  const register = (data) => {
-    const exists = users.find(
-      (u) => u.accountNumber === data.accountNumber
-    );
+const register = (data) => {
+  const exists = users.find(
+    (u) => u.accountNumber === data.accountNumber
+  );
 
-    if (exists) return { error: "Account already exists" };
+  if (exists) return { error: "Account already exists" };
 
-    const newUser = {
-      ...data,
-      balance: 20000,
-      transactions: [],
-    };
-
-    setUsers([...users, newUser]);
-    return { success: true };
+  const newUser = {
+    ...data,
+    balance: 20000,
+    transactions: [],
   };
+
+  const updatedUsers = [...users, newUser];
+
+  setUsers(updatedUsers);
+  setCurrentUser(newUser);
+
+  localStorage.setItem("bankUsers", JSON.stringify(updatedUsers));
+  localStorage.setItem("loggedUser", JSON.stringify(newUser));
+
+  return { success: true };
+};
+
+
+
+
+
+
+
+  // const register = (data) => {
+  //   const exists = users.find(
+  //     (u) => u.accountNumber === data.accountNumber
+  //   );
+
+  //   if (exists) return { error: "Account already exists" };
+
+  //   const newUser = {
+  //     ...data,
+  //     balance: 20000,
+  //     transactions: [],
+  //   };
+
+  //   setUsers([...users, newUser]);
+  //   return { success: true };
+  // };
 
   /* LOGIN */
-  const login = (accountNumber, password, bank) => {
-    const user = users.find(
-      (u) =>
-        u.accountNumber === accountNumber &&
-        u.password === password &&
-        u.bank === bank
-    );
+const login = (accountNumber, password) => {
+  const savedUsers =
+    JSON.parse(localStorage.getItem("bankUsers")) || [];
 
-    if (!user) return { error: "Invalid login details" };
+  const user = savedUsers.find(
+    (u) =>
+      u.accountNumber === accountNumber &&
+      u.password === password
+  );
 
-    setCurrentUser(user);
-    return { success: true };
-  };
+  if (!user) return { error: "Invalid login details" };
+
+  setCurrentUser(user);
+  localStorage.setItem("loggedUser", JSON.stringify(user));
+  return { success: true };
+};
+
+
+
+  // const login = (accountNumber, password) => {
+  //   const user = users.find(
+  //     (u) =>
+  //       u.accountNumber === accountNumber &&
+  //       u.password === password
+  //   );
+
+  //   if (!user) return { error: "Invalid login details" };
+
+  //   setCurrentUser(user);
+  //   return { success: true };
+  // };
 
   /* LOGOUT */
   const logout = () => {

@@ -1,72 +1,109 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import Logo from "../assets/images/icon-scissors.svg";
 import { useBank } from "./Bankcontext";
 
 export default function Register({ onSuccess, onBack }) {
   const { register } = useBank();
 
-  const [form, setForm] = useState({
-    fullName: "",
-    accountNumber: "",
-    bank: "Zenith Bank",
-    password: "",
-  });
+  const [fullName, setFullName] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [bank, setBank] = useState("Zenith Bank");
+  const [password, setPassword] = useState("");
+  const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
 
   const submit = () => {
-    if (Object.values(form).some((v) => !v)) {
-      setError("All fields required");
+    if (!fullName || !accountNumber || !password || !confirm) {
+      setError("All fields are required");
       return;
     }
 
-    const res = register(form);
+    if (accountNumber.length !== 10) {
+      setError("Account number must be 10 digits");
+      return;
+    }
 
-    if (res.error) setError(res.error);
-    else onSuccess();
+    if (password !== confirm) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    const result = register({
+      fullName,
+      accountNumber,
+      password,
+    });
+
+    if (result?.error) {
+      setError(result.error);
+      return;
+    }
+
+    onSuccess(); // go to login
   };
 
   return (
     <div className="form-page">
       <header className="form-header">
-        <span onClick={onBack}>←</span>
-        <h3>Open Account</h3>
+        <span onClick={onBack} style={{cursor:"pointer"}}>←</span>
+        <img src={Logo} alt="" style={{ backgroundColor: "white", borderRadius: "50%" }} />
       </header>
 
       <div className="form-body">
-        {error && <div className="error">{error}</div>}
+        <h3>Open an Account</h3>
+        {error && <p className="error">{error}</p>}
 
         <label>Full Name</label>
-        <input
-          onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-        />
+        <input value={fullName} onChange={e => setFullName(e.target.value)} />
 
-        <label>Account Number</label>
-        <input
-          onChange={(e) =>
-            setForm({ ...form, accountNumber: e.target.value })
-          }
-        />
-
-        <label>Select Bank</label>
-        <select
-          onChange={(e) => setForm({ ...form, bank: e.target.value })}
-        >
+        {/* <label>Bank</label>
+        <select value={bank} onChange={e => setBank(e.target.value)}>
           <option>Zenith Bank</option>
           <option>GTBank</option>
           <option>Access Bank</option>
           <option>UBA</option>
-        </select>
+          <option>First Bank</option>
+        </select> */}
+
+        <label>Account Number</label>
+        <input value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
 
         <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
+        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
 
-        <button onClick={submit}>CREATE ACCOUNT</button>
+        <label>Confirm Password</label>
+        <input type="password" value={confirm} onChange={e => setConfirm(e.target.value)} />
+
+        <button onClick={submit}>REGISTER</button>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

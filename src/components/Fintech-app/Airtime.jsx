@@ -10,7 +10,7 @@ export default function Airtime({ onBack }) {
   const [error, setError] = useState("");
 
   const buyAirtime = () => {
-    const amt = Number(amount);
+    const amt = Number (amount);
 
     if (!phone || !amt) {
       setError("All fields required");
@@ -58,7 +58,7 @@ export default function Airtime({ onBack }) {
         <input
           type="number"
           placeholder="₦ Amount"
-          value={amount}
+          value= {amount}
           onChange={(e) => setAmount(e.target.value)}
         />
 

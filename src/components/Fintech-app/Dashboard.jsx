@@ -1,16 +1,34 @@
 import React, { useState } from "react";
-import Logo from "../assets/images/icon-scissors.svg"
+import Logo from "../assets/images/icon-scissors.svg";
+import { useBank } from "./Bankcontext";
+
 // import "./Dashboard.css";
 
-export default function Dashboard({goToAirtime, goToTransfer, goToTransactions}) {
+export default function Dashboard({goTo, goToAirtime, goToTransfer, goToTransactions, onLogout}) {
+    const { currentUser, logout } = useBank();
   const [hideBalance, setHideBalance] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+ 
+  if (!currentUser) return null;
 
   return (
+    <>
+    {showSidebar && (
+        <Sidebar
+          user={currentUser}
+          close={() => setShowSidebar(false)}
+          onLogout={onLogout}
+        />
+      )}
     <div className="dashboard">
       {/* TOP BAR */}
       <header className="dash-header">
-        <span className="menu">☰</span>
+        <span className="menu" onClick={() => setShowSidebar(true)} style={{cursor:"pointer"}}>☰</span>
         <h3>Overview</h3>
+      {/* <button onClick={() => {
+    logout();      // clear user
+    onLogout();    // go back to welcome page
+  }}>Logout</button> */}
         <img
           src={Logo}
           alt="logo"
@@ -21,8 +39,7 @@ export default function Dashboard({goToAirtime, goToTransfer, goToTransactions})
       {/* BALANCE CARD */}
       <section className="balance-card">
         <p>TOTAL BALANCE</p>
-        <h1>{hideBalance ? "₦ ****" : "₦ 16,985.38"}</h1>
-
+        <h1>{hideBalance ? "₦ ****" : `₦ ${currentUser.balance.toLocaleString()}`}</h1>
         <div className="toggle">
           <span>Hide balance</span>
           <input
@@ -34,26 +51,29 @@ export default function Dashboard({goToAirtime, goToTransfer, goToTransactions})
 
       {/* ACCOUNT INFO */}
       <section className="account-info">
-        <p className="acct-number">2215775836 - ACTIVE</p>
-        <p className="acct-name">BELIEVE ABRAHAM AMEDU</p>
+        <p>{currentUser.accountNumber} -  ACTIVE</p>
+        <p>{currentUser.fullName}</p>
+
+        {/* <p className="acct-number">2215775836 - ACTIVE</p> */}
+
 
         <div className="ledger">
-          <span>{hideBalance ? "₦ ****" : "₦ 16,985.38"}</span>
-          <small>Ledger Balance: ₦ 17,035.38</small>
+          <span>{hideBalance ? "₦ ****" : `₦ ${currentUser.balance.toLocaleString()}`}</span>
+          <small>Ledger Balance:  ₦ {currentUser.balance.toLocaleString()}</small>
         </div>
       </section>
 
       {/* QUICK ACTIONS */}
       <section className="actions">
-        <Action icon="📱" label="QR Payments" />
-        <Action icon="🎈" label="Travel & Leisure" />
-        <Action icon="📺" label="Cable TV" />
-        <Action icon="💳" label="Cards" />
+        <Action icon="📱" label="QR Payments" onClick={() => goTo("qr")} />
+        <Action icon="🎈" label="Travel & Leisure" onClick={() => goTo("travel")} />
+        <Action icon="📺" label="Cable TV" onClick={() => goTo("cable")}/>
+        <Action icon="💳" label="Cards" onClick={() => goTo("cards")} />
 
-        <Action icon="🆔" label="My BVN" />
-        <Action icon="🔁" label="Scheduled Payments" />
-        <Action icon="⚙️" label="Customize eaZylinks" />
-        <Action icon="🛠️" label="Settings" />
+        <Action icon="🆔" label="My BVN" onClick={() => goTo("bvn")} />
+        <Action icon="🔁" label="Scheduled Payments" onClick={() => goTo("scheduled")} />
+        <Action icon="⚙️" label="Customize eaZylinks" onClick={() => goTo("eazylinks")}/>
+        <Action icon="🛠️" label="Settings" onClick={() => goTo("settings")} />
       </section>
 
       {/* BOTTOM NAV */}
@@ -64,17 +84,70 @@ export default function Dashboard({goToAirtime, goToTransfer, goToTransactions})
   <NavItem label="Transactions" onClick={goToTransactions} />
       </nav>
     </div>
+    </>
+  );
+}
+function Sidebar({ user, close, onLogout }) {
+  return (
+    <>
+      <div className="sidebar-overlay" onClick={close}></div>
+
+      <aside className="sidebar">
+        <div className="sidebar-header">
+          <h3>{user.fullName}</h3>
+          <span className="close" onClick={close}>✕</span>
+        </div>
+
+        <ul className="sidebar-menu">
+          <li>🏠 Overview </li>
+          <li>🔁 Transfer </li>
+          <li>📱 Airtime Recharge</li>
+          <li>📦 Data Bundles</li>
+          <li>🧾 Bills Payment</li>
+          <li>🔳 QR Payments</li>
+          <li>💳 Cards</li>
+          <li>⚙️ Settings</li>
+        </ul>
+
+        <div className="sidebar-footer" onClick={onLogout} >
+          ⏻ Sign Out
+        </div>
+      </aside>
+    </>
   );
 }
 
-function Action({ icon, label }) {
+// function Action({ icon, label }) {
+//   return (
+//     <div className="action">
+//       <div className="icon">{icon}</div>
+//       <span>{label}</span>
+//     </div>
+//   );
+// }
+function Action({ icon, label, onClick }) {
   return (
-    <div className="action">
+    <div className="action" onClick={onClick}>
       <div className="icon">{icon}</div>
       <span>{label}</span>
     </div>
   );
 }
+// function PageLayout({ title, goBack, children }) {
+//   return (
+//     <div className="page">
+//       <header className="page-header">
+//         <span onClick={goBack}>←</span>
+//         <h3>{title}</h3>
+//       </header>
+
+//       <div className="page-content">
+//         {children}
+//       </div>
+//     </div>
+//   );
+// }
+
 function NavItem({ label, active, onClick }) {
   return (
     <div

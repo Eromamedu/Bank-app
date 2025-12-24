@@ -1,7 +1,11 @@
 import { useBank } from "./Bankcontext";
 
 export default function Transactions({ onBack }) {
-  const { transactions } = useBank();
+  const { currentUser } = useBank();
+  if (!currentUser) return null;
+
+  const transactions = currentUser.transactions || [];
+
 
   return (
     <div className="form-page">
