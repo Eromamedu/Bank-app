@@ -5,7 +5,7 @@ export default function CableTV({ goBack }) {
   const [provider, setProvider] = useState("dstv");
 
   return (
-    <PageLayout title="Cable TV" goBack={goBack}>
+    <PageLayout title="Cable TV" goBack={goBack} >
       
       {/* PROVIDER */}
       <div className="cable-section">
@@ -74,7 +74,7 @@ export default function CableTV({ goBack }) {
       </div>
 
       {/* CTA */}
-      <button className="primary" style={{backgroundColor:"#c60000"}}>Proceed</button>
+      <button className="primary">Proceed</button>
 
     </PageLayout>
   );

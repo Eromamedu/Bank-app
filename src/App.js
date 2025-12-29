@@ -90,7 +90,7 @@ function App() {
 )} */}
 
 {page === "qr" && <QRPayment goBack={() => goTo("dashboard")} />}
-{page === "cable" && <CableTV goBack={() => goTo("dashboard")} />}
+{page === "cable" && <CableTV goBack={() => goTo("dashboard")}  />}
 {page === "travel" && <Travel goBack={() => goTo("dashboard")} />}
 {page === "cards" && <Cards goBack={() => goTo("dashboard")} />}
 {page === "bvn" && <BVN goBack={() => goTo("dashboard")} />}

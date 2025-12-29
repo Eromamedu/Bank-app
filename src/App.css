@@ -1,3 +1,6 @@
+body{
+  background: white;
+}
 .login-page {
   width: 100%;
   height: 100vh;
@@ -763,8 +766,274 @@ button.secondary {
   font-size: 13px;
   color: #555;
 }
-/* CABLE TV */
+/* ===============================
+   CABLE TV – MODERN FINTECH STYLE
+================================ */
+
 .cable-section {
+  margin-bottom: 26px;
+}
+
+/* LABEL */
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2933;
+  margin-bottom: 10px;
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+/* PROVIDER GRID */
+.provider-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.provider-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ececec;
+  transition: all 0.25s ease;
+}
+
+.provider-card span {
+  font-size: 26px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.provider-card p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2933;
+}
+
+/* ACTIVE */
+.provider-card.active {
+  border: 2px solid #c9a24d;
+  background: #fffdf8;
+  transform: translateY(-2px);
+}
+
+.provider-card.active p {
+  font-weight: 700;
+}
+
+/* INPUTS */
+.cable-section input,
+.cable-section select {
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  border-radius: 14px;
+  border: 1px solid #d9d9d9;
+  font-size: 15px;
+  background: #ffffff;
+  color: #3e99f5ff;
+}
+
+.cable-section input::placeholder {
+  color: #9a9a9a;
+}
+
+.cable-section input:focus,
+.cable-section select:focus {
+  outline: none;
+  border-color: #c9a24d;
+}
+
+/* HINT */
+.hint {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+  display: block;
+}
+
+/* SUMMARY */
+.summary-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  margin: 28px 0;
+  border: 1px solid #ececec;
+}
+
+.summary-card div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.summary-card span {
+  color: #6b7280;
+}
+
+.summary-card strong {
+  color: #1f2933;
+  font-weight: 700;
+}
+
+/* CTA */
+button.primary {
+  background: #1f2033ff;
+  border-radius: 18px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+button.primary:hover {
+  background: #111827;
+}
+
+
+
+
+
+
+
+
+ /* ===========================
+   CABLE TV – BANK GRADE UI
+=========================== */
+
+/* .cable-section {
+  margin-bottom: 22px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+} */
+
+/* PROVIDER GRID */
+/* .provider-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.provider-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+.provider-card span {
+  font-size: 26px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.provider-card p {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.provider-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(198, 0, 0, 0.15);
+} */
+
+/* ACTIVE PROVIDER */
+/* .provider-card.active {
+  border: 2px solid #c60000;
+  background: linear-gradient(135deg, #fff5f5, #ffffff);
+}
+
+.provider-card.active p {
+  color: #c60000;
+  font-weight: 600;
+} */
+
+/* INPUT & SELECT */
+/* .cable-section input,
+.cable-section select {
+  width: 100%;
+  padding: 15px;
+  margin-top: 8px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.cable-section input:focus,
+.cable-section select:focus {
+  border-color: #c60000;
+} */
+
+/* HINT */
+/* .hint {
+  display: block;
+  margin-top: -10px;
+  font-size: 12px;
+  color: #888;
+} */
+
+/* SUMMARY */
+/* .summary-card {
+  background: linear-gradient(135deg, #fff5f5, #ffffff);
+  padding: 18px;
+  border-radius: 16px;
+  margin: 26px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.summary-card div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.summary-card span {
+  color: #555;
+}
+
+.summary-card strong {
+  color: #c60000;
+  font-weight: 700;
+} */
+
+/* CTA BUTTON */
+/* button.primary {
+  background: linear-gradient(90deg, #c60000, #e00000);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 18px rgba(198, 0, 0, 0.35);
+  transition: 0.25s ease;
+}
+
+button.primary:hover {
+  background: linear-gradient(90deg, #a80000, #c60000);
+  transform: translateY(-1px);
+} */
+
+/* CABLE TV */
+/* .cable-section {
   margin-bottom: 20px;
 }
 
@@ -833,7 +1102,7 @@ button.secondary {
 }
 .primary{
   background: #c60000;
-}
+} */
 /* CARD PAGE */
 .bank-card {
   background: linear-gradient(135deg, #c60000, #8b0000);
@@ -915,6 +1184,322 @@ button.secondary {
   color: #c60000;
   font-weight: 600;
 }
+/* BVN PAGE */
+.bvn-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  /* height: 50vh; */
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.bvn-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bvn-icon {
+  font-size: 26px;
+}
+
+.bvn-header h3 {
+  font-size: 15px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.bvn-header p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.bvn-number {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin: 18px 0;
+  color: #111827;
+}
+
+.bvn-toggle {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: #f1f5f9;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.bvn-toggle:hover {
+  background: #e2e8f0;
+}
+
+.bvn-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  color: #475569;
+}
+
 /* .ac-in{
   #fa4646ff
-} */
+} *//* SCHEDULED PAYMENTS */
+.scheduled-empty {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 22px;
+}
+
+.scheduled-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.scheduled-empty h3 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.scheduled-empty p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.scheduled-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #0f172a; /* deep banking blue/black */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.scheduled-btn:hover {
+  background: #020617;
+}
+
+.scheduled-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  /* border: 2px solid red; */
+  /* height:1vh; */
+  /* justify-content: center; */
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  color: #475569;
+}
+
+ /* SCHEDULED PAYMENTS */
+.scheduled-empty {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 22px;
+}
+
+.scheduled-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.scheduled-empty h3 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.scheduled-empty p {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.scheduled-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #0f172a; /* deep banking blue/black */
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.scheduled-btn:hover {
+  background: #020617;
+}
+
+.scheduled-info {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  color: #475569;
+}
+/* EAZYLINKS CUSTOMIZATION */
+.eazy-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 18px;
+}
+
+.eazy-card h3 {
+  font-size: 15px;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.eazy-card p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.eazy-list {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+.eazy-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.eazy-item:last-child {
+  border-bottom: none;
+}
+
+.eazy-item span {
+  font-size: 20px;
+}
+
+.eazy-item p {
+  flex: 1;
+  margin-left: 12px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+/* Toggle switch look */
+.eazy-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #0f172a;
+  cursor: pointer;
+}
+
+.eazy-save {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.eazy-save:hover {
+  background: #020617;
+}
+
+.eazy-info {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #64748b;
+  text-align: center;
+}
+/* SETTINGS PAGE */
+.settings-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px 0;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.settings-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  padding: 0 16px 8px;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-top: 1px solid #f1f5f9;
+  cursor: pointer;
+}
+
+.settings-item:first-of-type {
+  border-top: none;
+}
+
+.settings-item span {
+  font-size: 18px;
+}
+
+.settings-item p {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+/* LOGOUT BUTTON */
+.settings-logout {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: #f1f5f9;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-logout:hover {
+  background: #fee2e2;
+}

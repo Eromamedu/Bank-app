@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../assets/images/icon-scissors.svg";
+import Logos from "../assets/images/icon-scissors.svg";
 import { useBank } from "./Bankcontext";
 
 // import "./Dashboard.css";
@@ -18,6 +18,8 @@ export default function Dashboard({goTo, goToAirtime, goToTransfer, goToTransact
           user={currentUser}
           close={() => setShowSidebar(false)}
           onLogout={onLogout}
+          goTo={goTo}
+
         />
       )}
     <div className="dashboard">
@@ -30,7 +32,7 @@ export default function Dashboard({goTo, goToAirtime, goToTransfer, goToTransact
     onLogout();    // go back to welcome page
   }}>Logout</button> */}
         <img
-          src={Logo}
+          src={Logos}
           alt="logo"
           style={{ backgroundColor: "white", borderRadius: "50%" }}
         />
@@ -87,7 +89,7 @@ export default function Dashboard({goTo, goToAirtime, goToTransfer, goToTransact
     </>
   );
 }
-function Sidebar({ user, close, onLogout }) {
+function Sidebar({ user, close, onLogout, goTo }) {
   return (
     <>
       <div className="sidebar-overlay" onClick={close}></div>
@@ -99,14 +101,14 @@ function Sidebar({ user, close, onLogout }) {
         </div>
 
         <ul className="sidebar-menu">
-          <li>🏠 Overview </li>
-          <li>🔁 Transfer </li>
-          <li>📱 Airtime Recharge</li>
+          <li onClick={() => { goTo("dashboard"); close(); }}>🏠 Overview </li>
+          <li onClick={() => { goTo("transfer"); close(); }}>🔁 Transfer </li>
+          <li onClick={() => { goTo("airtime"); close(); }}>📱 Airtime Recharge</li>
           <li>📦 Data Bundles</li>
-          <li>🧾 Bills Payment</li>
-          <li>🔳 QR Payments</li>
-          <li>💳 Cards</li>
-          <li>⚙️ Settings</li>
+          <li onClick={() => { goTo("bills"); close(); }}>🧾 Bills Payment</li>
+          <li onClick={() => { goTo("qr"); close(); }}>🔳 QR Payments</li>
+          <li onClick={() => { goTo("cards"); close(); }}>💳 Cards</li>
+          <li onClick={() => { goTo("settings"); close(); }}>⚙️ Settings</li>
         </ul>
 
         <div className="sidebar-footer" onClick={onLogout} >
